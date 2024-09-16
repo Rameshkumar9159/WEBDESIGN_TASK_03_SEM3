@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #1f242d;
+    color: #fff;
+    padding-top: 80px;
+}
+
+/* Header styling */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: #1f242d; /* Background color for the header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: background 0.3s ease;
+}
+
+.header.scrolled {
+    background: #1f242d; /* Background color when scrolled */
+}
+
+/* Logo styling */
+.logo {
+    font-size: 25px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: default;
+}
+
+/* Navigation styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between menu items */
+}
+
+.navbar .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s, border-bottom 0.3s;
+    position: relative;
+    padding-bottom: 5px; /* Space for the underline effect */
+}
+
+.navbar .nav-link.active {
+    color: #0ef; /* Active link color */
+    border-bottom: 2px solid #0ef; /* Underline effect for active link */
+}
+
+.navbar .nav-link:hover {
+    color: #0ef; /* Hover color */
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 5%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar .nav-link {
+        margin-bottom: 10px;
+    }
+}
+
+/* Home Section */
+.home {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px 10% 0;
+    overflow: auto; /* For debugging overflow issues */
+}
+
+.home-content {
+    max-width: 600px;
+}
+
+.home-content h3 {
+    font-size: 32px;
+    font-weight: 700;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 0.7s;
+}
+
+.home-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    margin: -3px 0;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.home-content p {
+    font-size: 16px;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.home-content h2 span {
+    color: #0ef;
+}
+
+.home-img img {
+    max-width: 450px;
+    margin-right: -20px;
+    opacity: 0;
+    animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+    animation-delay: 2s, 3s;
+}
+
+/* Social Media */
+.social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #0ef;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #0ef;
+    text-decoration: none;
+    margin: 30px 15px 30px 0;
+    transition: background 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(0.2s * var(--i));
+}
+
+.social-media a:hover {
+    background: #0ef;
+    color: #1f242d;
+    box-shadow: 0 0 50px #0ef;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100%;
+    background: transparent;
+    border: 2px solid #0ef;
+    border-radius: 8px;
+    font-size: 19px;
+    color: #0ef;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-right: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+}
+
+.btn:last-child {
+    margin-right: 0;
+}
+
+.btn-head a:hover {
+    background: #0ef;
+    color: #1f242d;
+    box-shadow: 0 0 50px #0ef;
+}
+
+/* About Section */
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background: #2c2f3d; /* Changed to match background variable */
+    padding: 5rem 10%;
+}
+
+.about-img img {
+    width: 35vw;
+}
+
+.heading {
+    text-align: center;
+    font-size: 4.5rem;
+}
+
+.about-content h2 {
+    text-align: left;
+    line-height: 1.2;
+}
+
+.about-content h3 {
+    font-size: 2.6rem;
+    margin: 2rem 0 3rem;
+}
+
+.about-content p {
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+}
+
+.about-content h2 span {
+    color: #0ef;
+}
+
+.education-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.education h2 span{
+    color: #0ef;
+}
+
+.education-box {
+    flex: 1 1 30rem; /* Flex grow, shrink, and base width */
+    height: 1000px; /* Fixed height for uniformity */
+    background: #2c2f3d; /* Background color */
+    padding: 2rem; /* Adjust padding as needed */
+    border: 1px solid #0ef;
+    text-align: center;
+    transition: background-color 0.5s ease, border-color 0.5s ease, transform 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+}
+
+.education-box:hover {
+    background-color: gray;
+    border-color: #0ef;
+    transform: scale(1.02);
+}
+
+.education-box i {
+    font-size: 5rem; /* Adjusted size */
+    color: #0ef; /* Changed to match color scheme */
+}
+
+.education-box h3 {
+    font-size: 2rem; /* Adjusted size */
+    margin: 1rem 0;
+}
+
+.education-box p {
+    font-size: 1.4rem; /* Adjusted size */
+    margin: 0;
+}
+
+/* Portfolio Section */
+#Portfolio {
+    padding: 5rem 10%;
+    background: #1f242d;
+    color: #fff;
+}
+
+#Portfolio h2 {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+#Portfolio h2 span {
+    color: #0ef;
+}
+
+.skills-table {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 1.6rem;
+    background: #2c2f3d;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.skills-table th,
+.skills-table td {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+}
+
+#portfolio h2 span{
+    color:#0ef
+}
+
+.skills-table th {
+    color: #0ef;
+    font-size: 2rem;
+    font-weight: 600;
+    background: #1f242d;
+}
+
+.skills-table td {
+    color: #ddd;
+    position: relative;
+}
+
+.star-rating {
+    display: flex;
+    align-items: center;
+}
+
+.star {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+    background-color: #f9f9f9; /* Default unfilled star color */
+    transition: background-color 0.3s ease;
+}
+
+.star.filled {
+    background-color: #0ef; /* Filled star color */
+}
+
+.skills-table td p {
+    margin: 0;
+    padding-left: 10px;
+    font-size: 1.4rem;
+}
+
+/* Add some hover effect to table rows */
+.skills-table tr:hover {
+    background: #0b51e8;
+    cursor: pointer;
+}
+
+#contact h2 span{
+    color: #0ef;
+}
+
+
+
+
+/* Animations */
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideTop {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-24px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
